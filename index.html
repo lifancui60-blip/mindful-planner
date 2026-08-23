@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f7f4" />
+    <title>鐭ヨ 路 浣犵殑鎴愰暱璁″垝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="涓诲鑸?>
+        <a class="brand" href="#home" data-view-target="home" aria-label="鐭ヨ棣栭〉">
+          <span class="brand-mark">Z</span>
+          <span>鐭ヨ</span>
+        </a>
+
+        <nav class="main-nav">
+          <button class="nav-item active" data-view-target="home"><span class="nav-icon">鈱?/span>浠婃棩</button>
+          <button class="nav-item" data-view-target="mood"><span class="nav-icon">鈽?/span>蹇冩儏</button>
+          <button class="nav-item" data-view-target="books"><span class="nav-icon">鈻?/span>璇讳功绗旇</button>
+          <button class="nav-item" data-view-target="plans"><span class="nav-icon">鈼?/span>璁″垝</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <button class="nav-item" id="export-data"><span class="nav-icon">鈬?/span>瀵煎嚭鏁版嵁</button>
+          <button class="nav-item" id="reset-data"><span class="nav-icon">鈫?/span>鎭㈠绀轰緥</button>
+          <p class="storage-note"><span class="status-dot"></span>宸蹭繚瀛樺湪鏈満</p>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="鎵撳紑鑿滃崟">鈽?/button>
+          <div class="date-lockup">
+            <p id="today-label">鏄熸湡涓€锛?鏈?4鏃?/p>
+            <span id="week-label">2026 路 绗?35 鍛?/span>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="quick-add" aria-label="蹇€熸坊鍔?>锛?/button>
+            <button class="avatar" aria-label="涓汉璧勬枡">J</button>
+          </div>
+        </header>
+
+        <section class="view active" id="home-view" aria-labelledby="home-title">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow">HELLO, JOURNEYER</p>
+              <h1 id="home-title">鎶婁粖澶╋紝杩囧緱娓呴啋涓€鐐广€?/h1>
+              <p class="subcopy" id="greeting-copy">鐣欎竴鐐圭┖闂寸粰鎰熷彈锛屼篃鐣欎竴鐐硅鍔ㄧ粰鎯虫垚涓虹殑鑷繁銆?/p>
+            </div>
+            <button class="button button-dark" data-open-modal="mood-modal">璁板綍姝ゅ埢 <span>鈫?/span></button>
+          </div>
+
+          <div class="overview-grid">
+            <article class="focus-card">
+              <div class="card-heading"><span>浠婃棩涓撴敞</span><span id="today-progress-label">0 / 0 宸插畬鎴?/span></div>
+              <div class="focus-content">
+                <div class="progress-ring" id="today-ring" style="--progress: 0"><span id="today-progress-value">0%</span></div>
+                <div class="focus-text"><h2 id="focus-title">浠庝竴浠堕噸瑕佺殑浜嬪紑濮?/h2><p id="focus-caption">娣诲姞璁″垝鍚庯紝杩欓噷浼氭樉绀轰粖鏃ユ渶閲嶈鐨勭洰鏍囥€?/p></div>
+              </div>
+              <button class="text-button" data-view-target="plans">鏌ョ湅浠婃棩璁″垝 <span>鈫?/span></button>
+            </article>
+
+            <article class="mood-summary-card">
+              <div class="card-heading"><span>鏈懆蹇冩儏</span><button class="inline-link" data-view-target="mood">鏌ョ湅璁板綍</button></div>
+              <div class="mood-chart" id="mood-chart" aria-label="鏈懆蹇冩儏瓒嬪娍"></div>
+              <div class="mood-legend"><span>浣庤惤</span><span>骞抽潤</span><span>鎰夋偊</span></div>
+            </article>
+
+            <article class="streak-card">
+              <p>杩炵画璁板綍</p>
+              <strong id="streak-count">0</strong><span>澶?/span>
+              <div class="streak-days" id="streak-days" aria-label="鏈懆杩炵画璁板綍"></div>
+              <p class="tiny-copy">璁╁井灏忕殑鍧氭寔鎴愪负浣犵殑搴曟皵銆?/p>
+            </article>
+          </div>
+
+          <div class="home-lower-grid">
+            <section class="daily-list-section">
+              <div class="section-heading"><div><p class="eyebrow">DAILY RHYTHM</p><h2>浠婃棩瀹夋帓</h2></div><button class="small-add" data-add-task="daily">娣诲姞浠诲姟 锛?/button></div>
+              <div id="home-task-list" class="task-list"></div>
+            </section>
+            <section class="reflection-section">
+              <div class="reflection-symbol">鈥?/div>
+              <p class="eyebrow">TODAY'S REFLECTION</p>
+              <blockquote id="reflection-quote">閲嶈鐨勪笉鏄畬鎴愬緱澶氾紝鑰屾槸浣犳槸鍚﹀湪鍚戣嚜宸遍潬杩戙€?/blockquote>
+              <button class="inline-link" id="change-quote">鎹竴鍙ョ伒鎰?鈫?/button>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="mood-view" aria-labelledby="mood-title">
+          <div class="page-heading"><div><p class="eyebrow">INNER WEATHER</p><h1 id="mood-title">蹇冩儏锛屽€煎緱琚湅瑙併€?/h1><p class="subcopy">涓嶆槸涓轰簡缁欐劅鍙楁墦鍒嗭紝鑰屾槸涓轰簡鏇存噦姝ゅ埢鐨勮嚜宸便€?/p></div><button class="button button-dark" data-open-modal="mood-modal">锛?蹇冩儏鎵撳崱</button></div>
+          <div class="mood-page-grid">
+            <article class="mood-stat-panel"><p>杩?30 澶╁钩鍧囧績鎯?/p><strong id="mood-average">鈥?/strong><span id="mood-average-text">杩樻病鏈夎冻澶熺殑璁板綍</span><div class="mood-big-icon" id="mood-big-icon">鈽?/div></article>
+            <article class="mood-calendar-panel"><div class="card-heading"><span>鏈€杩?7 澶?/span><span class="muted">鐐归€変竴鏃ユ煡鐪?/span></div><div id="mood-week-calendar" class="mood-week-calendar"></div></article>
+          </div>
+          <section class="timeline-section"><div class="section-heading"><div><p class="eyebrow">MOMENTS</p><h2>蹇冩儏鎵嬭处</h2></div><span id="mood-entry-count" class="count-label">0 鏉¤褰?/span></div><div id="mood-timeline" class="mood-timeline"></div></section>
+        </section>
+
+        <section class="view" id="books-view" aria-labelledby="books-title">
+          <div class="page-heading"><div><p class="eyebrow">READ 路 THINK 路 KEEP</p><h1 id="books-title">璇昏繃鐨勶紝浼氱暀涓嬫潵銆?/h1><p class="subcopy">鏀堕泦鍑讳腑浣犵殑鏂囧瓧锛屼篃璁板綍瀹冧滑甯︽潵鐨勫彉鍖栥€?/p></div><button class="button button-dark" data-open-modal="book-modal">锛?鏂板缓绗旇</button></div>
+          <div class="book-summary"><div><strong id="book-count">0</strong><span>鏈功鐨勬€濊€?/span></div><div><strong id="book-note-count">0</strong><span>鏉℃憳璁颁笌鎰熸兂</span></div><div><strong id="book-rating">鈥?/strong><span>骞冲潎璇勫垎</span></div></div>
+          <div id="book-grid" class="book-grid"></div>
+        </section>
+
+        <section class="view" id="plans-view" aria-labelledby="plans-title">
+          <div class="page-heading plans-heading"><div><p class="eyebrow">MAKE IT REAL</p><h1 id="plans-title">璁╂効鏈涙湁鑷繁鐨勮妭濂忋€?/h1><p class="subcopy">鎶婅繙鏂规媶鎴愬彲鎶佃揪鐨勬瘡涓€姝ャ€?/p></div><button class="button button-dark" id="add-plan-button">锛?娣诲姞璁″垝</button></div>
+          <div class="plan-tabs" role="tablist" aria-label="璁″垝鍛ㄦ湡">
+            <button class="plan-tab active" data-plan-type="daily" role="tab">鏃ヨ鍒?/button>
+            <button class="plan-tab" data-plan-type="monthly" role="tab">鏈堣鍒?/button>
+            <button class="plan-tab" data-plan-type="quarterly" role="tab">瀛ｅ害璁″垝</button>
+            <button class="plan-tab" data-plan-type="yearly" role="tab">骞磋鍒?/button>
+          </div>
+          <section class="plan-board">
+            <div class="plan-board-header"><div><span id="plan-period-label">浠婂ぉ</span><h2 id="plan-board-title">浠婂ぉ鐨勪笁浠朵簨</h2></div><div class="plan-board-progress"><span id="plan-board-progress-text">0% 瀹屾垚</span><div class="thin-progress"><i id="plan-board-progress-bar" style="width: 0%"></i></div></div></div>
+            <div id="plan-list" class="plan-list"></div>
+            <button class="add-row" id="add-plan-row">锛?娣诲姞涓€椤?/button>
+          </section>
+          <section class="vision-section"><div><p class="eyebrow">NORTH STAR</p><h2>鍐欑粰鏈潵鐨勪綘</h2><p>浣犲笇鏈涜繖涓€骞寸粨鏉熸椂锛岃嚜宸辫韩涓婄暀涓嬩粈涔堬紵</p></div><textarea id="vision-input" rows="4" placeholder="鍦ㄨ繖閲屽啓涓嬩綘鐨勫勾搴︽効鏅€?></textarea></section>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+    <section class="modal" id="mood-modal" aria-labelledby="mood-modal-title" role="dialog" aria-modal="true" hidden>
+      <button class="close-modal" data-close-modal aria-label="鍏抽棴">脳</button>
+      <p class="eyebrow">CHECK IN</p><h2 id="mood-modal-title">姝ゅ埢鐨勪綘锛屾劅瑙夊浣曪紵</h2>
+      <div class="mood-picker" id="mood-picker">
+        <button data-mood="1"><span>鈽?/span>浣庤惤</button><button data-mood="2"><span>鈼?/span>鐤叉儷</button><button data-mood="3" class="selected"><span>鈼?/span>骞抽潤</button><button data-mood="4"><span>鈽?/span>涓嶉敊</button><button data-mood="5"><span>鉁?/span>鎰夋偊</button>
+      </div>
+      <label class="field-label" for="mood-note">鎯宠涓嬩粈涔堬紵<span>鍙€?/span></label><textarea id="mood-note" rows="4" placeholder="浠婂ぉ鍙戠敓浜嗕粈涔堬紝鎴栧彧鏄啓涓嬩竴涓康澶粹€?></textarea>
+      <button class="button button-dark full-width" id="save-mood">淇濆瓨浠婂ぉ鐨勬劅鍙?<span>鈫?/span></button>
+    </section>
+
+    <section class="modal modal-wide" id="book-modal" aria-labelledby="book-modal-title" role="dialog" aria-modal="true" hidden>
+      <button class="close-modal" data-close-modal aria-label="鍏抽棴">脳</button>
+      <p class="eyebrow">READING NOTE</p><h2 id="book-modal-title">鐣欎綇涓€涓惎鍙?/h2>
+      <div class="form-grid"><label>涔﹀悕<input id="book-title-input" placeholder="渚嬪锛氫篃璁镐綘璇ユ壘涓汉鑱婅亰" /></label><label>浣滆€?input id="book-author-input" placeholder="浣滆€呭鍚嶏紙鍙€夛級" /></label></div>
+      <label class="field-label" for="book-note-input">鎽樿鎴栨劅鎯?/label><textarea id="book-note-input" rows="5" placeholder="涓€鍙ユ墦鍔ㄤ綘鐨勬枃瀛楋紝鎴栬瀹屽悗鐨勬€濊€冣€?></textarea>
+      <div class="form-grid"><label>鏍囩<input id="book-tags-input" placeholder="鎴愰暱, 蹇冪悊瀛? /></label><label>璇勫垎<div class="rating-picker" id="rating-picker"><button data-rating="1">鈽?/button><button data-rating="2">鈽?/button><button data-rating="3">鈽?/button><button data-rating="4">鈽?/button><button data-rating="5">鈽?/button></div></label></div>
+      <button class="button button-dark full-width" id="save-book">淇濆瓨绗旇 <span>鈫?/span></button>
+    </section>
+
+    <section class="modal" id="plan-modal" aria-labelledby="plan-modal-title" role="dialog" aria-modal="true" hidden>
+      <button class="close-modal" data-close-modal aria-label="鍏抽棴">脳</button>
+      <p class="eyebrow">NEW INTENTION</p><h2 id="plan-modal-title">娣诲姞涓€浠舵兂瀹屾垚鐨勪簨</h2>
+      <label class="field-label" for="plan-title-input">璁″垝鍐呭</label><input id="plan-title-input" placeholder="渚嬪锛氬畬鎴愭湰鍛ㄧ殑璇讳功绗旇" />
+      <label class="field-label" for="plan-category-input">鍒嗙被 <span>鍙€?/span></label><input id="plan-category-input" placeholder="渚嬪锛氳嚜鎴戞垚闀? />
+      <button class="button button-dark full-width" id="save-plan">娣诲姞鍒拌鍒?<span>鈫?/span></button>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
+
